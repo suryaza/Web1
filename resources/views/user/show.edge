@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Siswa</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        padding: 20px;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <h1>https://bit.ly/pptadonisjs</h1>
+
+    <div>
+      <h3>Kelas</h3>
+      <form
+        id="kelas-form"
+        action="{{ route('Users.update', { id: user?.id }) }}"
+        method="POST"
+      >
+        <div style="margin-bottom: 10px">
+          <label for="email">Email:</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            value="{{ user?.email }}"
+            required
+          />
+        </div>
+        <div style="margin-bottom: 10px">
+          <label for="password">Password:</label>
+          <input
+            type="text"
+            id="password"
+            name="password"
+            value="{{ user?.password }}"
+            required
+          />
+        </div>
+        <div style="margin-bottom: 10px">
+          <label for="nama">Nama</label>
+          <input
+            type="text"
+            id="nama"
+            name="nama"
+            value="{{ user?.nama }}"
+            required
+          />
+        </div>
+        <div style="margin-bottom: 10px">
+          <label for="umur">Umur</label>
+          <input
+            type="text"
+            id="umur"
+            name="umur"
+            value="{{ user?.umur }}"
+            required
+          />
+        </div>
+           <div style="margin-bottom: 10px">
+          <label for="role">Role</label>
+          <input
+            type="text"
+            id="role"
+            name="role"
+            value="{{ user?.role }}"
+            required
+          />
+        </div>
+        <button type="submit" style="margin-bottom: 10px">edit</button>
+      </form>
+    </div>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const kelasForm = document.getElementById("kelas-form");
+        const kelasModal = document.getElementById("kelasModal");
+        const overlay = document.getElementById("overlay");
+
+        // kelasForm.addEventListener("submit", function (event) {
+        //   event.preventDefault();
+
+        //   closeModal();
+        // });
+
+        window.openModal = function () {
+          kelasModal.style.display = "block";
+          overlay.style.display = "block";
+        };
+
+        window.closeModal = function () {
+          kelasModal.style.display = "none";
+          overlay.style.display = "none";
+          kelasForm.reset();
+        };
+      });
+    </script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

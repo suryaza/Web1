@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 300px;
+      }
+      h2 {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      label {
+        display: block;
+        margin-bottom: 6px;
+      }
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      button {
+        width: 100%;
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Register</h2>
+      <form action="{{ route('register') }}" class="login-form" method="post">
+        <label for="nama">Nama:</label>
+        <input
+          type="text"
+          id="nama"
+          name="nama"
+          placeholder="Masukkan Nama"
+          required
+        />
+        <label for="umur">Umur:</label>
+        <input
+          type="number"
+          id="umur"
+          name="umur"
+          placeholder="Masukkan Umur"
+          required
+        />
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Masukkan Email"
+          required
+        />
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Masukkan Password"
+          required
+        />
+        <label for="confirm-password">Confirm Password:</label>
+        <input
+          type="password"
+          id="confirm_password"
+          name="confirm_password"
+          placeholder="Masukkan Password Kembali"
+          required
+        />
+        @if(flashMessages.has('notification'))
+        <div
+          class="alert alert-success"
+          style="background-color: rgb(116, 197, 232); margin-bottom: 15px"
+        >
+          {{ flashMessages.get("notification") }}
+        </div>
+        @endif
+        <button type="submit">Register</button>
+      </form>
+
+      <div style="margin-top: 15px">
+        Sudah punya akun?
+        <a href="/login" className="mt-2"> Login</a>
+      </div>
+    </div>
+  </body>
+</html>
